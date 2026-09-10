@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar | SkillBridge AI</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<div class="login-shell">
+    <section class="login-art">
+        <div class="login-brand-line"><span class="brand-mark large">SB</span><strong>SkillBridge AI</strong></div>
+        <div class="login-copy">
+            <span class="hero-chip glass">PLATAFORMA INTELIGENTE</span>
+            <h1>Conectamos talento, proyectos y conocimiento.</h1>
+            <p>Centraliza el talento de tu organización, conecta las habilidades adecuadas con cada proyecto y mejora la gestión de tus equipos.</p>
+            <div class="login-feature-row">
+                <span>✦ Habilidades</span><span>▣ Proyectos</span><span>◫ Disponibilidad</span><span>✧ Talent Matching</span>
+            </div>
+        </div>
+        <small class="login-foot">Gestión de talento y proyectos · SkillBridge AI</small>
+    </section>
+    <section class="login-card-wrap">
+        <div class="card login-card">
+            <p class="eyebrow">SkillBridge AI</p>
+            <h2>Iniciar sesión</h2>
+            <p class="muted">Ingresa tus credenciales para acceder a la plataforma.</p>
+            <form th:action="@{/login}" method="post">
+                <div class="form-group" style="margin-top:18px">
+                    <label>Correo institucional</label>
+                    <input type="email" value="maria.gonzalez@skillbridge.com" disabled>
+                </div>
+                <div class="form-group" style="margin-top:14px">
+                    <label>Contraseña</label>
+                    <input type="password" value="12345678" disabled>
+                </div>
+                <p class="field-caption">Perfil de acceso</p>
+                <div class="role-grid">
+                    <div class="role-option"><input id="col" type="radio" name="rol" value="COL" checked><label for="col"><span class="role-dot purple"></span><strong>Colaborador</strong><small>Perfil y proyectos</small></label></div>
+                    <div class="role-option"><input id="pm" type="radio" name="rol" value="PM"><label for="pm"><span class="role-dot blue"></span><strong>Project Manager</strong><small>Proyectos y equipos</small></label></div>
+                    <div class="role-option"><input id="rm" type="radio" name="rol" value="RM"><label for="rm"><span class="role-dot green"></span><strong>Resource Manager</strong><small>Talento y carga</small></label></div>
+                    <div class="role-option"><input id="adm" type="radio" name="rol" value="ADMIN"><label for="adm"><span class="role-dot orange"></span><strong>Administrador</strong><small>Usuarios y catálogo</small></label></div>
+                </div>
+                <button class="btn btn-primary btn-lg" style="width:100%;margin-top:18px" type="submit">Ingresar</button>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>

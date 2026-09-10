@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>SkillBridge AI</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body class="hero-public">
+<nav class="public-nav"><a class="public-brand" th:href="@{/}">SkillBridge AI</a><a class="btn btn-primary" th:href="@{/login}">Ingresar</a></nav>
+<section class="public-hero">
+    <div>
+        <span class="hero-chip">PLATAFORMA INTELIGENTE DE TALENTO</span>
+        <h1>Talento, proyectos y conocimiento en un solo lugar.</h1>
+        <p>Centraliza perfiles, habilidades, proyectos, asignaciones y disponibilidad para conectar a las personas adecuadas con cada iniciativa de la organización.</p>
+        <div class="page-actions" style="justify-content:flex-start;margin-top:26px"><a class="btn btn-primary btn-lg" th:href="@{/login}">Explorar la plataforma</a><a class="btn btn-light btn-lg" href="#modulos">Conocer módulos</a></div>
+    </div>
+    <div class="mock-panel">
+        <div class="card-title"><div><p class="eyebrow">Vista general</p><h2 style="margin:0">SkillBridge Dashboard</h2></div><span class="badge badge-success">Operativo</span></div>
+        <div class="mini-grid"><div class="mock-box"><span class="muted">Colaboradores</span><h2>64</h2><small style="color:var(--green)">+8% este mes</small></div><div class="mock-box"><span class="muted">Proyectos activos</span><h2>18</h2><small style="color:var(--blue)">6 en planificación</small></div><div class="mock-box"><span class="muted">Asignaciones</span><h2>32</h2><small style="color:var(--purple)">72% carga media</small></div><div class="mock-box"><span class="muted">Habilidades</span><h2>128</h2><small style="color:var(--orange)">12 categorías</small></div></div>
+        <div class="card" style="margin-top:14px;box-shadow:none;background:#fafaff"><div class="card-title"><strong>Talent Matching IA</strong><span class="badge badge-purple">88% match</span></div><p class="muted">Recomendaciones basadas en habilidades, experiencia y disponibilidad.</p><div class="progress"><span style="width:88%"></span></div></div>
+    </div>
+</section>
+<section id="modulos" class="content" style="max-width:1180px;margin:0 auto;padding-bottom:80px"><div class="grid-4"><article class="card"><div class="metric-icon">♙</div><h3>Colaboradores</h3><p class="muted">Perfiles profesionales, habilidades, certificaciones y experiencia.</p></article><article class="card"><div class="metric-icon">▣</div><h3>Proyectos</h3><p class="muted">Estados, fechas, responsables, vacantes y progreso.</p></article><article class="card"><div class="metric-icon">☷</div><h3>Asignaciones</h3><p class="muted">Carga de trabajo, rol y porcentaje de dedicación.</p></article><article class="card"><div class="metric-icon">◌</div><h3>Conocimiento</h3><p class="muted">Foros, chat y conocimiento histórico de proyectos.</p></article></div></section>
+</body></html>

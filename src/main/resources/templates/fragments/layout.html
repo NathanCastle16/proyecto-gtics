@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<aside th:fragment="sidebar(rol)" class="sidebar">
+    <a class="brand" th:href="@{/}">
+        <span class="brand-mark">SB</span>
+        <span class="brand-copy"><strong>SkillBridge AI</strong><small>Talent & Projects</small></span>
+    </a>
+
+    <div class="sidebar-section-label">Navegación</div>
+    <nav class="nav-menu" th:switch="${rol}">
+        <th:block th:case="'ADMIN'">
+            <a th:href="@{/admin/inicio}"><span class="nav-icon">⌂</span><span>Inicio</span></a>
+            <a th:href="@{/admin/usuarios}"><span class="nav-icon">♙</span><span>Usuarios</span></a>
+            <a th:href="@{/admin/roles}"><span class="nav-icon">◆</span><span>Roles y permisos</span></a>
+            <a th:href="@{/admin/habilidades}"><span class="nav-icon">✦</span><span>Habilidades</span></a>
+            <a th:href="@{/admin/categorias}"><span class="nav-icon">▱</span><span>Categorías</span></a>
+            <a th:href="@{/admin/auditoria}"><span class="nav-icon">◷</span><span>Auditoría</span></a>
+            <a th:href="@{/admin/monitoreo}"><span class="nav-icon">⌁</span><span>Monitoreo</span></a>
+        </th:block>
+
+        <th:block th:case="'PM'">
+            <a th:href="@{/pm/inicio}"><span class="nav-icon">⌂</span><span>Inicio</span></a>
+            <a th:href="@{/pm/proyectos}"><span class="nav-icon">▣</span><span>Proyectos</span></a>
+            <a th:href="@{/pm/asignaciones}"><span class="nav-icon">☷</span><span>Asignaciones</span></a>
+            <a th:href="@{/pm/colaboradores}"><span class="nav-icon">♙</span><span>Colaboradores</span></a>
+            <a th:href="@{/pm/disponibilidad}"><span class="nav-icon">◫</span><span>Disponibilidad</span></a>
+            <a th:href="@{/pm/recomendaciones}"><span class="nav-icon">✧</span><span>Recomendaciones IA</span></a>
+            <a th:href="@{/pm/foros}"><span class="nav-icon">◌</span><span>Foros</span></a>
+            <a th:href="@{/pm/reportes}"><span class="nav-icon">▥</span><span>Reportes</span></a>
+            <a th:href="@{/pm/historial}"><span class="nav-icon">◷</span><span>Historial</span></a>
+        </th:block>
+
+        <th:block th:case="'RM'">
+            <a th:href="@{/resource/inicio}"><span class="nav-icon">⌂</span><span>Inicio</span></a>
+            <a th:href="@{/resource/colaboradores}"><span class="nav-icon">♙</span><span>Colaboradores</span></a>
+            <a th:href="@{/resource/asignaciones}"><span class="nav-icon">☷</span><span>Asignaciones</span></a>
+            <a th:href="@{/resource/disponibilidad}"><span class="nav-icon">◫</span><span>Disponibilidad</span></a>
+            <a th:href="@{/resource/carga}"><span class="nav-icon">▤</span><span>Carga de trabajo</span></a>
+            <a th:href="@{/resource/talent}"><span class="nav-icon">✧</span><span>Talent Matching IA</span></a>
+            <a th:href="@{/resource/historial}"><span class="nav-icon">◷</span><span>Proyectos anteriores</span></a>
+        </th:block>
+
+        <th:block th:case="*">
+            <a th:href="@{/colaborador/inicio}"><span class="nav-icon">⌂</span><span>Inicio</span></a>
+            <a th:href="@{/colaborador/perfil}"><span class="nav-icon">♙</span><span>Mi perfil</span></a>
+            <a th:href="@{/colaborador/certificaciones}"><span class="nav-icon">◇</span><span>Certificaciones</span></a>
+            <a th:href="@{/colaborador/habilidades}"><span class="nav-icon">✦</span><span>Mis habilidades</span></a>
+            <a th:href="@{/colaborador/proyectos}"><span class="nav-icon">▣</span><span>Mis proyectos</span></a>
+            <a th:href="@{/colaborador/asignaciones}"><span class="nav-icon">☷</span><span>Mis asignaciones</span></a>
+            <a th:href="@{/colaborador/foros}"><span class="nav-icon">◌</span><span>Foros</span></a>
+            <a th:href="@{/colaborador/chat}"><span class="nav-icon">◍</span><span>Chat</span></a>
+            <a th:href="@{/colaborador/notificaciones}"><span class="nav-icon">♢</span><span>Notificaciones</span></a>
+        </th:block>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a th:href="@{/login}"><span class="nav-icon">↩</span><span>Cerrar sesión</span></a>
+    </div>
+</aside>
+
+<header th:fragment="topbar(titulo)" class="topbar">
+    <div>
+        <p class="eyebrow">SkillBridge AI</p>
+        <h1 th:text="${titulo}">Título</h1>
+    </div>
+    <div class="topbar-tools">
+        <div class="top-search">⌕ <span>Buscar en la plataforma</span></div>
+        <div class="topbar-user">
+            <span class="avatar">SB</span>
+            <div>
+                <strong>SkillBridge AI</strong>
+                <small>Plataforma interna</small>
+            </div>
+        </div>
+    </div>
+</header>
+
+</body>
+</html>
