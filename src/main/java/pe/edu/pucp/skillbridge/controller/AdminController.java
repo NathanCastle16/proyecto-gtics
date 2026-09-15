@@ -121,7 +121,7 @@ public class AdminController {
     public String habilidades(@RequestParam(value = "q", required = false) String q, Model model) {
         List<Habilidad> habilidades = (q == null || q.isBlank())
                 ? habilidadRepository.findAll()
-                : habilidadRepository.findByNombreContainingIgnoreCase(q);
+                : habilidadRepository.findByNombreContainingIgnoreCaseOrDescriptionContainingIgnoreCase(q, q);
         model.addAttribute("titulo", "Catálogo de habilidades");
         model.addAttribute("habilidades", habilidades);
         model.addAttribute("q", q);

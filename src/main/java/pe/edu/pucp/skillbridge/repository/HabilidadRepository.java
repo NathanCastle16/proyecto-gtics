@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface HabilidadRepository extends JpaRepository<Habilidad, Integer> {
     List<Habilidad> findByEstadoTrueOrderByNombreAsc();
-    List<Habilidad> findByNombreContainingIgnoreCase(String nombre);
+    List<Habilidad> findByNombreContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String nombre, String description);
 }
