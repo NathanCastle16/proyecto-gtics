@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.pucp.skillbridge.entity.*;
 import pe.edu.pucp.skillbridge.repository.*;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -118,15 +119,31 @@ public class AdminController {
     }
 
     @GetMapping("/habilidades")
-    public String habilidades(@RequestParam(value = "q", required = false) String q, Model model) {
-        List<Habilidad> habilidades = (q == null || q.isBlank())
-                ? habilidadRepository.findAll()
-                : habilidadRepository.findByNombreContainingIgnoreCaseOrDescriptionContainingIgnoreCase(q, q);
+    public String habilidades(
+            @RequestParam(value="q", required=false) String q,
+            @RequestParam(value="categoria", required=false) String categoria,
+            @RequestParam(value="soloActivas", required=false) boolean soloActivas,
+            Model model) {
+        List<Habilidad> habilidades = habilidadRepository.filtrarHabilidades(
+            q != null ? q.trim() : "",
+            categoria != null ? categoria.trim() : "",
+            soloActivas
+        );
+        List<String> categorias = new ArrayList<>();
+        for (Habilidad h : habilidadRepository.findAll()) {
+            String cat = (h.getCategoria() == null || h.getCategoria().isBlank()) ? "Sin categoría" : h.getCategoria();
+            if (!categorias.contains(cat)) {
+                categorias.add(cat);
+            }
+        }
         model.addAttribute("titulo", "Catálogo de habilidades");
         model.addAttribute("habilidades", habilidades);
         model.addAttribute("q", q);
-        model.addAttribute("activas", habilidades.stream().filter(h -> Boolean.TRUE.equals(h.getEstado())).count());
-        model.addAttribute("categorias", habilidades.stream().map(Habilidad::getCategoria).filter(c -> c != null && !c.isBlank()).distinct().count());
+        model.addAttribute("categoria", categoria);
+        model.addAttribute("categorias", categorias);
+        model.addAttribute("soloActivas", soloActivas);
+        model.addAttribute("numberActivas", habilidades.stream().filter(h -> Boolean.TRUE.equals(h.getEstado())).count());
+        model.addAttribute("numberCategorias", habilidades.stream().map(Habilidad::getCategoria).filter(c -> c != null && !c.isBlank()).distinct().count());
         return "admin/habilidades";
     }
 
