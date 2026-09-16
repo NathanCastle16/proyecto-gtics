@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Certificación | SkillBridge AI</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<div class="app-shell">
+    <aside th:replace="~{fragments/layout :: sidebar('COL')}"></aside>
+    <main class="main">
+        <header th:replace="~{fragments/layout :: topbar(${titulo})}"></header>
+        <div class="content">
+            <section class="page-intro"><div><p class="eyebrow">Credenciales profesionales</p><h2 th:text="${titulo}"></h2><p>Registra una certificación para enriquecer tu perfil y respaldar tu experiencia profesional.</p></div></section>
+            <div class="alert-error" th:if="${mensajeError}" th:text="${mensajeError}"></div>
+            <div class="grid-3">
+                <section class="card" style="grid-column:span 2">
+                    <form th:action="@{/colaborador/certificaciones/guardar}" th:object="${certificacion}" method="post">
+                        <input type="hidden" th:field="*{idCertificacion}">
+                        <div class="form-grid">
+                            <div class="form-group full"><label>Nombre de la certificación</label><input th:field="*{nombre}" maxlength="40" required placeholder="Ej. AWS Certified Developer - Associate"><div class="form-note">Máximo 40 caracteres.</div></div>
+                            <div class="form-group"><label>Entidad emisora</label><input th:field="*{entidadEmisora}" maxlength="40" placeholder="Amazon Web Services"><div class="form-note">Máximo 40 caracteres.</div></div>
+                            <div class="form-group"><label>Estado</label><select th:field="*{estado}"><option value="VIGENTE">Vigente</option><option value="VENCIDA">Vencida</option><option value="SIN_EXPIRACION">Sin expiración</option></select></div>
+                            <div class="form-group"><label>Fecha de emisión</label><input type="date" th:field="*{fechaEmision}"></div>
+                            <div class="form-group"><label>Fecha de expiración</label><input type="date" th:field="*{fechaExpiracion}"></div>
+                            <div class="form-group full"><label>URL de credencial</label><input type="text" th:field="*{urlCredencial}" maxlength="300" placeholder="https://..."></div>
+                        </div>
+                        <div class="form-actions"><a class="btn btn-light" th:href="@{/colaborador/certificaciones}">Cancelar</a><button class="btn btn-primary">Guardar certificación</button></div>
+                    </form>
+                </section>
+                <aside class="card hero-card"><p class="eyebrow">Perfil SkillBridge</p><h3>Haz visible tu experiencia</h3><p class="muted">Las certificaciones complementan tus habilidades y fortalecen tu perfil frente a nuevas oportunidades.</p><div class="knowledge-tip cert-tip"><strong>Consejo</strong><p>Incluye la entidad emisora y la URL de verificación cuando estén disponibles. Mantener estos datos actualizados facilita validar tu experiencia.</p></div></aside>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
