@@ -4,9 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pucp.skillbridge.entity.*;
+import pe.edu.pucp.skillbridge.entity.Usuario.EstadoUsuario;
 import pe.edu.pucp.skillbridge.repository.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,8 +55,8 @@ public class AdminController {
     @GetMapping("/usuarios")
     public String usuarios(
         @RequestParam(value = "q", required = false) String q, 
-        @RequestParam(value = "soloActivos", required = false) boolean soloActivos,
         @RequestParam(value = "rol", required = false) Integer rol,
+        @RequestParam(value = "estado", required = false) EstadoUsuario estado,
         Model model)
     {
         // List<Usuario> lista = usuarioRepository.findAll();
@@ -69,13 +71,15 @@ public class AdminController {
         List<Usuario> listaUsuarios = usuarioRepository.filtrarUsuarios(
             q != null ? q.trim() : "", 
             rol,
-            soloActivos
+            estado
         );
         List<Rol> listaRoles = rolRepository.findAll();
+        List<EstadoUsuario> listaEstados = Arrays.asList(EstadoUsuario.values());
         model.addAttribute("titulo", "Usuarios");
         model.addAttribute("usuarios", listaUsuarios);
         model.addAttribute("q", q);
-        model.addAttribute("soloActivos", soloActivos);
+        model.addAttribute("estado", estado);
+        model.addAttribute("estados", listaEstados);
         model.addAttribute("rol", rol);
         model.addAttribute("roles", listaRoles);
         model.addAttribute("activos", listaUsuarios.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.ACTIVO).count());

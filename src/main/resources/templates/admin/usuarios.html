@@ -47,13 +47,13 @@
                         <input class="search" type="text" name="q" th:value="${q}" placeholder="Buscar por nombre, correo o rol">
 
                         <select class="compact" name="rol">
-                            <option value="" th:selected="${rol == null or rol == ''}">Todos los roles</option>
+                            <option value="" th:selected="${rol == null}">Todos los roles</option>
                             <option th:each="r : ${roles}" th:value="${r.idRol}" th:text="${r.nombre}" th:selected="${r.idRol == rol}"></option>
                         </select>
-                        <label class="badge badge-success" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; user-select: none; font-size: 11px; padding: 7px 10px;">
-                            <input type="checkbox" name="soloActivos" value="true" th:checked="${soloActivos}">
-                            <span>ACTIVO</span>
-                        </label>
+                        <select class="compact" name="estado">
+                            <option value="" th:selected="${estado == null}">Todos los estados</option>
+                            <option th:each="e : ${estados}" th:value="${e}" th:text="${e}" th:selected="${e == estado}"></option>
+                        </select>
 
                         <button type="submit" class="btn btn-light">Buscar</button>
                         <a class="btn btn-light" th:href="@{/admin/usuarios}">Limpiar</a>

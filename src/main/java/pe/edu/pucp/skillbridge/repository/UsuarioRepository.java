@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import pe.edu.pucp.skillbridge.entity.Usuario;
+import pe.edu.pucp.skillbridge.entity.Usuario.EstadoUsuario;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -24,13 +26,13 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
                 :rol IS NULL OR
                 u.rol.idRol = :rol
             ) AND (
-                :soloActivos = false OR
-                u.estado = EstadoUsuario.ACTIVO
+                :estado IS NULL OR
+                :estado = u.estado
             )
         """)
     List<Usuario> filtrarUsuarios(
         @Param("q") String q,
         @Param("rol") Integer rol,
-        @Param("soloActivos") Boolean soloActivos
+        @Param("estado") EstadoUsuario estado
     );
 }
