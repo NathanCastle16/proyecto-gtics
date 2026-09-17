@@ -44,11 +44,11 @@
                                 <option value="" th:selected="${categoria == null or '' == categoria}">Todas las categorías</option>
                                 <option th:each="cat : ${categorias}" th:value="${cat}" th:text="${cat}" th:selected="${cat == categoria}"></option>
                             </select>
-                            <label class="tag" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; user-select: none;">
+                            <label class="badge badge-success" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; user-select: none; font-size: 11px; padding: 7px 10px;">
                                 <input type="checkbox" name="soloActivas" value="true" th:checked="${soloActivas}">
-                                <span>Solo activas</span>
+                                <span>ACTIVA</span>
                             </label>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-light">
                                 Buscar
                             </button>
                             <a th:href="@{/admin/habilidades}" class="btn btn-light" title="Restablecer filtros">

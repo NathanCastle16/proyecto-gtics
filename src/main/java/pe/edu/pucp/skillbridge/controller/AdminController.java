@@ -51,22 +51,36 @@ public class AdminController {
     }
 
     @GetMapping("/usuarios")
-    public String usuarios(@RequestParam(value = "q", required = false) String q, Model model) {
-        List<Usuario> lista = usuarioRepository.findAll();
-        if (q != null && !q.isBlank()) {
-            String texto = q.toLowerCase();
-            lista = lista.stream().filter(u ->
-                    u.getNombreCompleto().toLowerCase().contains(texto)
-                            || u.getCorreo().toLowerCase().contains(texto)
-                            || u.getRol().getNombre().toLowerCase().contains(texto)
-            ).toList();
-        }
+    public String usuarios(
+        @RequestParam(value = "q", required = false) String q, 
+        @RequestParam(value = "soloActivos", required = false) boolean soloActivos,
+        @RequestParam(value = "rol", required = false) Integer rol,
+        Model model)
+    {
+        // List<Usuario> lista = usuarioRepository.findAll();
+        // if (q != null && !q.isBlank()) {
+        //     String texto = q.toLowerCase();
+        //     lista = lista.stream().filter(u ->
+        //             u.getNombreCompleto().toLowerCase().contains(texto)
+        //                     || u.getCorreo().toLowerCase().contains(texto)
+        //                     || u.getRol().getNombre().toLowerCase().contains(texto)
+        //     ).toList();
+        // }
+        List<Usuario> listaUsuarios = usuarioRepository.filtrarUsuarios(
+            q != null ? q.trim() : "", 
+            rol,
+            soloActivos
+        );
+        List<Rol> listaRoles = rolRepository.findAll();
         model.addAttribute("titulo", "Usuarios");
-        model.addAttribute("usuarios", lista);
+        model.addAttribute("usuarios", listaUsuarios);
         model.addAttribute("q", q);
-        model.addAttribute("activos", lista.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.ACTIVO).count());
-        model.addAttribute("inactivos", lista.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.INACTIVO).count());
-        model.addAttribute("bloqueados", lista.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.BLOQUEADO).count());
+        model.addAttribute("soloActivos", soloActivos);
+        model.addAttribute("rol", rol);
+        model.addAttribute("roles", listaRoles);
+        model.addAttribute("activos", listaUsuarios.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.ACTIVO).count());
+        model.addAttribute("inactivos", listaUsuarios.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.INACTIVO).count());
+        model.addAttribute("bloqueados", listaUsuarios.stream().filter(u -> u.getEstado() == Usuario.EstadoUsuario.BLOQUEADO).count());
         return "admin/usuarios";
     }
 

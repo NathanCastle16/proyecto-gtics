@@ -1,1 +1,60 @@
-<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editar perfil | SkillBridge AI</title><link rel="stylesheet" th:href="@{/css/app.css}"></head><body><div class="app-shell"><aside th:replace="~{fragments/layout :: sidebar('COL')}"></aside><main class="main"><header th:replace="~{fragments/layout :: topbar(${titulo})}"></header><div class="content"><section class="page-intro"><div><h2>Actualiza tu información profesional</h2><p>Mantén al día tus datos de contacto, cargo, área, seniority, disponibilidad e intereses.</p></div></section><section class="card form-card hero-card" th:if="${colaborador != null}"><form th:action="@{/colaborador/perfil/guardar}" th:object="${colaborador}" method="post"><input type="hidden" th:field="*{idColaborador}"><div class="form-grid"><div class="form-group"><label>Nombres</label><input name="nombres" th:value="${colaborador.usuario.nombres}" required></div><div class="form-group"><label>Apellidos</label><input name="apellidos" th:value="${colaborador.usuario.apellidos}" required></div><div class="form-group"><label>Teléfono</label><input name="telefono" th:value="${colaborador.usuario.telefono}"></div><div class="form-group"><label>Cargo</label><input th:field="*{cargo}"></div><div class="form-group"><label>Área</label><input th:field="*{area}"></div><div class="form-group"><label>Seniority</label><select th:field="*{seniority}"><option value="JUNIOR">JUNIOR</option><option value="SEMI_SENIOR">SEMI_SENIOR</option><option value="SENIOR">SENIOR</option><option value="LEAD">LEAD</option></select></div><div class="form-group"><label>Disponibilidad base (%)</label><input type="number" min="0" max="100" th:field="*{disponibilidadBase}"></div><div class="form-group full"><label>Biografía</label><textarea rows="4" th:field="*{biografia}" placeholder="Resume tu experiencia y perfil profesional."></textarea></div><div class="form-group full"><label>Intereses profesionales</label><textarea rows="3" th:field="*{interesesProfesionales}" placeholder="Backend, Cloud, DevOps, IA..."></textarea></div></div><div class="form-actions"><a class="btn btn-light" th:href="@{/colaborador/perfil}">Cancelar</a><button class="btn btn-primary">Guardar cambios</button></div></form></section></div></main></div></body></html>
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Editar perfil | SkillBridge AI</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside th:replace="~{fragments/layout :: sidebar('COL')}"></aside>
+        <main class="main">
+            <header th:replace="~{fragments/layout :: topbar(${titulo})}"></header>
+            <div class="content">
+                <section class="page-intro">
+                    <div>
+                        <h2>Actualiza tu información profesional</h2>
+                        <p>Mantén al día tus datos de contacto, cargo, área, seniority, disponibilidad e intereses.</p>
+                    </div>
+                </section>
+                <section class="card form-card hero-card" th:if="${colaborador != null}">
+                    <form th:action="@{/colaborador/perfil/guardar}" th:object="${colaborador}" method="post"><input
+                            type="hidden" th:field="*{idColaborador}">
+                        <div class="form-grid">
+                            <div class="form-group"><label>Nombres</label><input name="nombres"
+                                    th:value="${colaborador.usuario.nombres}" required></div>
+                            <div class="form-group"><label>Apellidos</label><input name="apellidos"
+                                    th:value="${colaborador.usuario.apellidos}" required></div>
+                            <div class="form-group"><label>Teléfono</label><input name="telefono"
+                                    th:value="${colaborador.usuario.telefono}"></div>
+                            <div class="form-group"><label>Cargo</label><input th:field="*{cargo}"></div>
+                            <div class="form-group"><label>Área</label><input th:field="*{area}"></div>
+                            <div class="form-group"><label>Seniority</label><select th:field="*{seniority}">
+                                    <option value="JUNIOR">JUNIOR</option>
+                                    <option value="SEMI_SENIOR">SEMI_SENIOR</option>
+                                    <option value="SENIOR">SENIOR</option>
+                                    <option value="LEAD">LEAD</option>
+                                </select></div>
+                            <div class="form-group"><label>Disponibilidad base (%)</label><input type="number" min="0"
+                                    max="100" th:field="*{disponibilidadBase}"></div>
+                            <div class="form-group full"><label>Biografía</label><textarea rows="4"
+                                    th:field="*{biografia}"
+                                    placeholder="Resume tu experiencia y perfil profesional."></textarea></div>
+                            <div class="form-group full"><label>Intereses profesionales</label><textarea rows="3"
+                                    th:field="*{interesesProfesionales}"
+                                    placeholder="Backend, Cloud, DevOps, IA..."></textarea></div>
+                        </div>
+                        <div class="form-actions"><a class="btn btn-light"
+                                th:href="@{/colaborador/perfil}">Cancelar</a><button class="btn btn-primary">Guardar
+                                cambios</button></div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
