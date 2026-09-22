@@ -732,3 +732,1581 @@ input:focus, select:focus, textarea:focus { border-color: #9c86ff; box-shadow: 0
     .forum-toolbar-actions .btn { flex:1 1 120px; }
     .chat-head-v4 { align-items:flex-start; }
 }
+
+/* ============================================================
+   ADMIN - FORMULARIO DE USUARIO
+   ============================================================ */
+
+.user-form-intro {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-create-card {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+}
+
+
+/* ===== SECCIONES ===== */
+
+.user-form-section {
+
+    display: grid;
+
+    grid-template-columns:
+        230px
+        minmax(0, 1fr);
+
+    gap: 30px;
+
+    padding: 30px;
+}
+
+
+.user-section-divider {
+
+    height: 1px;
+
+    margin: 0 30px;
+
+    background: var(--border);
+}
+
+
+/* ===== DESCRIPCIÓN LATERAL ===== */
+
+.user-section-aside {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+
+.user-section-aside h3 {
+
+    margin: 2px 0 5px;
+
+    font-size: 15px;
+
+    color: var(--text);
+}
+
+
+.user-section-aside p {
+
+    margin: 0;
+
+    max-width: 175px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+
+.section-icon {
+
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 auto;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--purple-soft);
+
+    color: var(--purple);
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+
+.section-icon-security {
+
+    background: #edf3ff;
+
+    color: #336fe7;
+}
+
+
+/* ===== CAMPOS ===== */
+
+.user-section-content {
+
+    min-width: 0;
+}
+
+
+.user-create-card input,
+.user-create-card select {
+
+    min-height: 46px;
+
+    border-radius: 12px;
+}
+
+
+.required {
+
+    color: var(--red);
+
+    margin-left: 2px;
+}
+
+
+.form-note {
+
+    margin: 6px 1px 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+
+/* ===== CORREO ===== */
+
+.input-with-icon {
+
+    position: relative;
+}
+
+
+.input-with-icon input {
+
+    padding-left: 42px;
+}
+
+
+.field-icon {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #747b98;
+
+    font-size: 14px;
+}
+
+
+/* ===== TELÉFONO ===== */
+
+.phone-control {
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr);
+
+    overflow: hidden;
+
+    border: 1px solid #dfe1ec;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+}
+
+
+.phone-control:focus-within {
+
+    border-color: #8d76f5;
+
+    box-shadow:
+            0 0 0 3px
+            rgba(91, 46, 245, .08);
+}
+
+
+.phone-prefix {
+
+    min-width: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 13px;
+
+    border-right:
+            1px solid
+            var(--border);
+
+    background: #fafaff;
+
+    color: #545c78;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.phone-control input {
+
+    border: 0 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ===== CONTRASEÑA ===== */
+
+.password-control {
+
+    position: relative;
+}
+
+
+.password-control input {
+
+    padding-right: 48px;
+}
+
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 8px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #707793;
+}
+
+
+.password-toggle:hover {
+
+    background: #f2efff;
+}
+
+
+.password-info {
+
+    margin-top: 14px;
+
+    padding: 14px 16px;
+
+    border: 1px solid #e4defa;
+
+    border-radius: 13px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #f8f5ff,
+                    #f3f7ff
+            );
+}
+
+
+.password-info strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 12px;
+}
+
+
+.password-info p {
+
+    margin: 3px 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* ===== BOTONES ===== */
+
+.user-form-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+            0
+            30px
+            30px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+    .user-form-section {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .user-section-aside p {
+
+        max-width: none;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .user-create-card .form-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .user-form-section {
+
+        padding:
+                22px
+                18px;
+    }
+
+
+    .user-section-divider {
+
+        margin:
+                0
+                18px;
+    }
+
+
+    .user-form-actions {
+
+        padding:
+                0
+                18px
+                22px;
+    }
+
+}
+
+/* =========================================================
+   AJUSTE FINAL - FORMULARIO NUEVO USUARIO
+   ========================================================= */
+
+/* Tarjeta principal */
+.user-create-card {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+
+/* Secciones */
+.user-form-section {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 28px;
+    padding: 28px;
+    align-items: start;
+}
+
+.user-section-divider {
+    height: 1px;
+    margin: 0 28px;
+    background: var(--border);
+}
+
+
+/* Columna descriptiva */
+.user-section-aside {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.user-section-aside h3 {
+    margin: 2px 0 5px;
+    font-size: 15px;
+}
+
+.user-section-aside p {
+    margin: 0;
+    max-width: 170px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* Icono de sección */
+.section-icon {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--purple-soft);
+    color: var(--purple);
+
+    font-size: 17px;
+}
+
+.section-icon-security {
+    background: #eef3ff;
+    color: #356ee6;
+}
+
+
+/* Inputs */
+.user-create-card input,
+.user-create-card select {
+    min-height: 46px;
+    border-radius: 12px;
+}
+
+
+/* Texto de ayuda */
+.form-note {
+    margin: 6px 1px 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.required {
+    color: var(--red);
+}
+
+
+/* =========================================================
+   REQUISITOS DE CONTRASEÑA
+   ========================================================= */
+
+.password-requirements {
+    margin-top: 14px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 8px 12px;
+
+    padding: 14px 16px;
+
+    background: #fafaff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.password-requirements strong {
+    grid-column: 1 / -1;
+
+    margin-bottom: 2px;
+
+    font-size: 11px;
+    color: var(--text);
+}
+
+.password-requirements span {
+    position: relative;
+
+    padding-left: 18px;
+
+    color: #666d88;
+    font-size: 10px;
+}
+
+.password-requirements span::before {
+    content: "✓";
+
+    position: absolute;
+    left: 0;
+
+    color: var(--green);
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   ACCESO INICIAL
+   ========================================================= */
+
+.user-access-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin: 0 28px 22px;
+
+    padding: 14px 16px;
+
+    border: 1px solid #dfd8fa;
+    border-radius: 13px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #f8f5ff,
+                    #f2f7ff
+            );
+}
+
+.access-note-icon {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background: #ebe5ff;
+
+    font-size: 16px;
+}
+
+.user-access-note strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 12px;
+}
+
+.user-access-note p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTRASEÑAS
+   ========================================================= */
+
+.password-control {
+    position: relative;
+}
+
+.password-control input {
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 7px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+
+    display: grid;
+    place-items: center;
+}
+
+.password-toggle:hover {
+    background: #f3f1ff;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.user-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 28px 26px;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .user-form-section {
+        grid-template-columns: 1fr;
+    }
+
+    .user-section-aside p {
+        max-width: none;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .password-requirements {
+        grid-template-columns: 1fr;
+    }
+
+    .password-requirements strong {
+        grid-column: auto;
+    }
+}
+
+/* ==========================================================
+   ADMINISTRADOR - FORMULARIO USUARIO SIMPLE
+   ========================================================== */
+
+
+/* ===== ENCABEZADO ===== */
+
+.usuario-page-intro {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.usuario-page-intro h2 {
+    margin-bottom: 6px;
+}
+
+.usuario-page-intro p {
+    margin: 0;
+    color: var(--muted);
+}
+
+
+/* ===== TARJETA PRINCIPAL ===== */
+
+.usuario-form-card {
+    max-width: 1080px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+}
+
+
+/* ===== SECCIONES ===== */
+
+.usuario-form-section {
+    display: grid;
+
+    grid-template-columns:
+        190px
+        minmax(0, 1fr);
+
+    gap: 28px;
+
+    padding: 26px;
+}
+
+
+/* ===== TÍTULO DE SECCIÓN ===== */
+
+.usuario-section-title {
+    padding-top: 2px;
+}
+
+.usuario-section-title h3 {
+    margin: 0 0 6px;
+
+    font-size: 15px;
+
+    color: var(--text);
+}
+
+.usuario-section-title p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ===== CONTENIDO ===== */
+
+.usuario-section-content {
+    min-width: 0;
+}
+
+
+/* ===== DIVISOR ===== */
+
+.usuario-divider {
+    height: 1px;
+
+    margin: 0 26px;
+
+    background: var(--border);
+}
+
+
+/* ===== CAMPOS ===== */
+
+.usuario-form-card .form-grid {
+    gap: 17px 18px;
+}
+
+.usuario-form-card .form-group label {
+    margin-bottom: 7px;
+
+    color: #454b65;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.usuario-form-card input,
+.usuario-form-card select {
+    min-height: 44px;
+
+    border-radius: 10px;
+}
+
+
+/* ===== CAMPO OBLIGATORIO ===== */
+
+.required {
+    margin-left: 2px;
+
+    color: var(--red);
+}
+
+
+/* ===== TEXTO DE AYUDA ===== */
+
+.form-note {
+    margin: 6px 1px 0;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   TELÉFONO
+   ========================================================== */
+
+.usuario-phone {
+    display: grid;
+
+    grid-template-columns:
+        58px
+        minmax(0, 1fr);
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe1ec;
+
+    border-radius: 10px;
+}
+
+.usuario-phone:focus-within {
+    border-color: #9c86ff;
+
+    box-shadow:
+            0 0 0 3px
+            rgba(91, 46, 245, .08);
+}
+
+.usuario-phone-prefix {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-right: 1px solid var(--border);
+
+    background: #fafaff;
+
+    color: #565d78;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.usuario-phone input {
+    border: 0 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   CONTRASEÑA
+   ========================================================== */
+
+.usuario-password {
+    position: relative;
+}
+
+.usuario-password input {
+    padding-right: 45px;
+}
+
+.usuario-password-button {
+    position: absolute;
+
+    top: 50%;
+    right: 7px;
+
+    width: 32px;
+    height: 32px;
+
+    transform: translateY(-50%);
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #777d96;
+
+    cursor: pointer;
+}
+
+.usuario-password-button:hover {
+    background: #f3f1ff;
+}
+
+
+/* ===== REQUISITOS ===== */
+
+.usuario-password-help {
+    margin: 10px 1px 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* ===== ERROR ===== */
+
+.usuario-form-error {
+    margin-top: 12px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #f1c4ca;
+
+    border-radius: 9px;
+
+    background: #fff2f4;
+
+    color: #a33d4a;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   BOTONES
+   ========================================================== */
+
+.usuario-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+            0
+            26px
+            26px;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .usuario-form-section {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .usuario-form-card .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .usuario-form-section {
+        padding:
+                22px
+                18px;
+    }
+
+    .usuario-divider {
+        margin:
+                0
+                18px;
+    }
+
+    .usuario-form-actions {
+        padding:
+                0
+                18px
+                22px;
+    }
+
+}
+
+/* ==========================================================
+   CONFIRMACIÓN DE CIERRE DE SESIÓN
+   ========================================================== */
+
+
+/* BOTÓN DEL SIDEBAR */
+
+.logout-sidebar-button {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 42px;
+
+    padding: 10px 11px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #cbd1f2;
+
+    font-size: 13px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .18s ease;
+}
+
+
+.logout-sidebar-button:hover {
+
+    background: var(--role-soft);
+
+    color: #ffffff;
+
+    transform: translateX(2px);
+}
+
+
+/* ==========================================================
+   FONDO DEL MODAL
+   ========================================================== */
+
+.logout-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+            opacity .18s ease,
+            visibility .18s ease;
+}
+
+
+.logout-modal.show {
+
+    visibility: visible;
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* FONDO OSCURO */
+
+.logout-modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+            rgba(12, 18, 35, .68);
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* ==========================================================
+   VENTANA
+   ========================================================== */
+
+.logout-modal-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(420px, 100%);
+
+    padding: 30px 28px 24px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow:
+            0 24px 70px
+            rgba(16, 24, 40, .22);
+
+    text-align: center;
+
+    transform: translateY(10px) scale(.98);
+
+    transition:
+            transform .18s ease;
+}
+
+
+.logout-modal.show
+.logout-modal-content {
+
+    transform:
+            translateY(0)
+            scale(1);
+}
+
+
+/* ==========================================================
+   BOTÓN X
+   ========================================================== */
+
+.logout-modal-close {
+
+    position: absolute;
+
+    top: 12px;
+    right: 14px;
+
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #8389a0;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+.logout-modal-close:hover {
+
+    background: #f4f4f8;
+
+    color: var(--text);
+}
+
+
+/* ==========================================================
+   ICONO
+   ========================================================== */
+
+.logout-modal-icon {
+
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 18px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #fdebed;
+
+    color: #dc4052;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+/* ==========================================================
+   TEXTO
+   ========================================================== */
+
+.logout-modal-content h2 {
+
+    margin: 0 0 10px;
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    letter-spacing: -.02em;
+}
+
+
+.logout-modal-content p {
+
+    max-width: 340px;
+
+    margin: 0 auto;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   BOTONES
+   ========================================================== */
+
+.logout-modal-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 10px;
+
+    margin-top: 24px;
+}
+
+
+.logout-modal-actions .btn {
+
+    min-height: 43px;
+}
+
+
+.logout-confirm {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    border-radius: 9px;
+
+    background: #df4051;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: .18s ease;
+}
+
+
+.logout-confirm:hover {
+
+    background: #ca3445;
+
+    transform: translateY(-1px);
+}
+
+
+/* No mover la página mientras está abierto */
+
+body.modal-open {
+
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 520px) {
+
+    .logout-modal-content {
+
+        padding:
+                28px
+                20px
+                20px;
+    }
+
+
+    .logout-modal-actions {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   ROLES Y PERMISOS
+   ========================================================= */
+
+
+/* TÍTULOS */
+
+.simple-section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+.simple-section-title h2 {
+
+    margin: 0 0 5px;
+
+    font-size: 17px;
+}
+
+
+.simple-section-title p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+
+/* =========================================================
+   TARJETAS DE ROLES
+   ========================================================= */
+
+.simple-role-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+
+.simple-role-card {
+
+    width: 100%;
+
+    min-height: 135px;
+
+    padding: 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+.simple-role-card:hover {
+
+    border-color: #bfb5f2;
+}
+
+
+.simple-role-card.active {
+
+    border: 2px solid var(--purple);
+
+    background: #faf9ff;
+
+    padding: 15px;
+}
+
+
+
+.simple-role-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.simple-role-header strong {
+
+    font-size: 13px;
+
+    color: var(--text);
+}
+
+
+.simple-role-card p {
+
+    margin: 10px 0 14px;
+
+    min-height: 30px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+.simple-role-count {
+
+    color: var(--purple);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+
+/* =========================================================
+   PANEL DE PERMISOS
+   ========================================================= */
+
+.simple-permission-panel.hidden {
+
+    display: none;
+}
+
+
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+
+.simple-permission-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.simple-permission-table th {
+
+    padding: 11px 12px;
+
+    background: #f8f8fc;
+
+    border-bottom: 1px solid var(--border);
+
+    text-align: left;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.simple-permission-table td {
+
+    padding: 13px 12px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: #555c76;
+
+    font-size: 11px;
+}
+
+
+.simple-permission-table td strong {
+
+    color: var(--text);
+
+    font-size: 11px;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .simple-role-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .simple-role-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .simple-section-title {
+
+        flex-direction: column;
+
+    }
+
+}

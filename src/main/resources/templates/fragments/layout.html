@@ -5,9 +5,18 @@
 <aside th:fragment="sidebar(rol)"
        class="sidebar"
        th:classappend="${rol == 'ADMIN'} ? ' sidebar-admin' : (${rol == 'PM'} ? ' sidebar-pm' : (${rol == 'RM'} ? ' sidebar-rm' : ' sidebar-col'))">
-    <a class="brand" th:href="${rol == 'ADMIN'} ? @{/admin/inicio} : (${rol == 'PM'} ? @{/pm/inicio} : (${rol == 'RM'} ? @{/resource/inicio} : @{/colaborador/inicio}))">
-        <span class="brand-mark">SB</span>
-        <span class="brand-copy"><strong>SkillBridge AI</strong><small>Talent Intelligence</small></span>
+    <a class="brand"
+       th:href="${rol == 'ADMIN'} ? @{/admin/inicio} : (${rol == 'PM'} ? @{/pm/inicio} : (${rol == 'RM'} ? @{/resource/inicio} : @{/colaborador/inicio}))">
+
+        <img th:src="@{/css/img/skillbridge-icon.png}"
+             src="/css/img/skillbridge-icon.png"
+             alt="SkillBridge AI"
+             class="brand-icon">
+
+        <span class="brand-copy">
+        <strong>SkillBridge AI</strong>
+        <small>Talent Intelligence</small>
+    </span>
     </a>
 
     <div class="role-signature">
@@ -63,8 +72,143 @@
     </nav>
 
     <div class="sidebar-bottom">
-        <a th:href="@{/logout}"><span class="nav-icon">↩</span><span>Cerrar sesión</span></a>
+
+        <button type="button"
+                class="logout-sidebar-button"
+                onclick="abrirModalLogout()">
+
+            <span class="nav-icon">↩</span>
+            <span>Cerrar sesión</span>
+
+        </button>
+
     </div>
+
+
+    <!-- ==================================================
+         MODAL CONFIRMAR CIERRE DE SESIÓN
+         ================================================== -->
+
+    <div id="logoutModal"
+         class="logout-modal"
+         aria-hidden="true">
+
+        <!-- FONDO OSCURO -->
+        <div class="logout-modal-overlay"
+             onclick="cerrarModalLogout()">
+        </div>
+
+
+        <!-- VENTANA -->
+        <div class="logout-modal-content"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="logoutModalTitle">
+
+            <!-- X -->
+            <button type="button"
+                    class="logout-modal-close"
+                    onclick="cerrarModalLogout()"
+                    aria-label="Cerrar ventana">
+                ×
+            </button>
+
+
+            <!-- ICONO -->
+            <div class="logout-modal-icon">
+                ↪
+            </div>
+
+
+            <!-- TEXTO -->
+            <h2 id="logoutModalTitle">
+                ¿Estás seguro de cerrar sesión?
+            </h2>
+
+            <p>
+                Tu sesión se cerrará y tendrás que iniciar sesión
+                nuevamente para ingresar a SkillBridge AI.
+            </p>
+
+
+            <!-- BOTONES -->
+            <div class="logout-modal-actions">
+
+                <button type="button"
+                        class="btn btn-light logout-cancel"
+                        onclick="cerrarModalLogout()">
+                    Cancelar
+                </button>
+
+
+                <a th:href="@{/logout}"
+                   class="btn logout-confirm">
+                    Cerrar sesión
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function abrirModalLogout() {
+
+            const modal =
+                document.getElementById("logoutModal");
+
+            modal.classList.add("show");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+        }
+
+
+        function cerrarModalLogout() {
+
+            const modal =
+                document.getElementById("logoutModal");
+
+            modal.classList.remove("show");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+        }
+
+
+        /*
+         Cerrar usando ESC
+        */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    cerrarModalLogout();
+
+                }
+
+            }
+        );
+
+    </script>
 </aside>
 
 <header th:fragment="topbar(titulo)"
